@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    </div> <!-- Closing container div -->
+    <h1>Search Results</h1>
+
+    <p>Searched for: <strong>{{ searched_ingredients }}</strong></p> {# Display what was searched #}
+    {# Display selected filters if they exist #}
+    {% if selected_cuisine %}
+        <p>Cuisine: <strong>{{ selected_cuisine }}</strong></p>
+    {% endif %}
+    {% if selected_diet %}
+        <p>Diet: <strong>{{ selected_diet }}</strong></p>
+    {% endif %}
+    <a href="/">Search Again</a> {# Link back to the home page #}
+
+    <hr> {# Horizontal line separator #}
+
+    {# Check if there was an error passed from Flask #}
+    {% if error %}
+        <p style="color: red;">Error: {{ error }}</p>
+    {% endif %}
+
+    {# Check if recipes were found and passed from Flask #}
+    {% if recipes %}
+        <h2>Found Recipes:</h2>
+        <ul>
+            {# Loop through each recipe in the 'recipes' list passed from Flask #}
+            {% for recipe in recipes %}
+                <li>
+                    {# Create a link to the details page, using the recipe's ID #}
+                    <a href="/recipe/{{ recipe.id }}">
+                        {{ recipe.title }}
+                    </a>
+                    (Missing Ingredients: {{ recipe.missedIngredientCount }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% elif not error %} {# Only show 'not found' if there wasn't already an error #}
+         <p>No recipes found matching your ingredients.</p>
+    {% endif %}
+    </div> <!-- Closing container div -->
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container"></div>
+    <h1>Find Recipes by Ingredients</h1>
+
+    <form action="/search" method="post">
+        <label for="ingredients">Enter ingredients (comma-separated):</label><br>
+        <input type="text" id="ingredients" name="ingredients" size="50" required><br><br>
+                <!-- Cuisine Filter Dropdown -->
+                <label for="cuisine">Cuisine (Optional):</label><br>
+                <select name="cuisine" id="cuisine">
+                    <option value="">-- Any Cuisine --</option>
+                    <option value="African">African</option>
+                    <option value="American">American</option>
+                    <option value="British">British</option>
+                    <option value="Cajun">Cajun</option>
+                    <option value="Caribbean">Caribbean</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="European">European</option>
+                    <option value="French">French</option>
+                    <option value="German">German</option>
+                    <option value="Greek">Greek</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Irish">Irish</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Jewish">Jewish</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Latin American">Latin American</option>
+                    <option value="Mediterranean">Mediterranean</option>
+                    <option value="Mexican">Mexican</option>
+                    <option value="Middle Eastern">Middle Eastern</option>
+                    <option value="Nordic">Nordic</option>
+                    <option value="Southern">Southern</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Thai">Thai</option>
+                    <option value="Vietnamese">Vietnamese</option>
+                </select>
+                <br><br> {# Add space after dropdown #}
+        
+                <!-- Diet Filter Dropdown -->
+                <label for="diet">Dietary Restriction (Optional):</label><br>
+                <select name="diet" id="diet">
+                    <option value="">-- Any Diet --</option>
+                    <option value="Gluten Free">Gluten Free</option>
+                    <option value="Ketogenic">Ketogenic</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+                    <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                    <option value="Pescetarian">Pescetarian</option>
+                    <option value="Paleo">Paleo</option>
+                    <option value="Primal">Primal</option>
+                    <option value="Low FODMAP">Low FODMAP</option>
+                    <option value="Whole30">Whole30</option>
+                </select>
+                <br><br> {# Add space after dropdown #}
+        <button type="submit">Search Recipes</button>
+    </form>
+    </div> <!-- Closing container div -->
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# Use .get() safely in case details is None #}
+    <title>Recipe: {{ details.get('title', 'Details') }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    </div> <!-- Closing container div -->
+    <a href="/"> << Back to Search</a> {# Link back to home page #}
+    <hr>
+
+    {% if error %}
+        <p style="color: red;">Error: {{ error }}</p>
+    {% elif details %} {# Only show details if no error AND details exist #}
+        <h1>{{ details.get('title', 'Recipe Details') }}</h1>
+
+        <p>
+            Ready in: <strong>{{ details.get('readyInMinutes', 'N/A') }} minutes</strong> |
+            Servings: <strong>{{ details.get('servings', 'N/A') }}</strong>
+        </p>
+        {% if details.get('sourceUrl') %}
+            <p>Original Source: <a href="{{ details.get('sourceUrl') }}" target="_blank">{{ details.get('sourceName', 'Link') }}</a></p>
+        {% endif %}
+
+        {% if details.get('image') %}
+            <img class="details-image" src="{{ details.get('image') }}" alt="{{ details.get('title') }}">
+            <br><br>
+        {% endif %}
+
+
+        <h2>Ingredients:</h2>
+        <ul>
+            {% for ingredient in details.get('extendedIngredients', []) %}
+                <li>{{ ingredient.get('original', 'N/A') }}</li>
+            {% else %}
+                <li>Ingredient list not available.</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Instructions:</h2>
+        {# Use preformatted tag to respect newlines from cleaned instructions #}
+        <pre style="white-space: pre-wrap; word-wrap: break-word;">{{ details.get('cleaned_instructions', 'Instructions not available.') }}</pre>
+
+    {% else %}
+        <p>Recipe details could not be loaded.</p>
+    {% endif %}
+    </div> <!-- Closing container div -->
+</body>
+</html>

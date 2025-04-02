@@ -1,0 +1,114 @@
+/* --- Basic Body and Font Styles --- */
+body {
+    font-family: sans-serif; /* Use a common, easy-to-read font */
+    background-color: #f4f7f6; /* A very light grey-green background */
+    color: #333; /* Dark grey text color, easier on eyes than pure black */
+    line-height: 1.6; /* Increase spacing between lines of text for readability */
+    margin: 0; /* Remove default browser margin around the page */
+    padding: 20px; /* Add some space between content and edge of window */
+}
+
+/* --- Heading Styles --- */
+h1 {
+    color: #005b96; /* A nice blue color for the main heading */
+    text-align: center; /* Center the main heading */
+    margin-bottom: 30px; /* Add extra space below the main heading */
+}
+
+h2 {
+    color: #019186; /* A teal color for secondary headings */
+    border-bottom: 2px solid #e0e0e0; /* Add a subtle line below H2 headings */
+    padding-bottom: 5px; /* Add a little space between text and the line */
+    margin-top: 40px; /* Add space above H2 headings */
+}
+
+/* --- Link Styles --- */
+a {
+    color: #007bff; /* Standard blue for links */
+    text-decoration: none; /* Remove the default underline */
+}
+
+a:hover {
+    color: #0056b3; /* Slightly darker blue when mouse hovers over link */
+    text-decoration: underline; /* Add underline on hover for clarity */
+}
+
+/* --- Basic Layout Centering --- */
+/* We'll add a wrapper div in HTML later */
+.container {
+    max-width: 800px; /* Limit the maximum width of the content */
+    margin: 0 auto; /* Center the container horizontally on the page */
+    background-color: #ffffff; /* White background for the content area */
+    padding: 30px; /* Add padding inside the content container */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add a subtle shadow effect */
+    border-radius: 5px; /* Slightly rounded corners */
+}
+/* --- Form Styles (index.html) --- */
+form {
+    margin-top: 20px; /* Add some space above the form */
+}
+
+label {
+    display: block; /* Make the label take its own line */
+    margin-bottom: 5px; /* Add space below the label */
+    font-weight: bold; /* Make label text bold */
+}
+
+input[type="text"] { /* Target only text input fields */
+    width: 80%; /* Make input field wider */
+    padding: 10px; /* Add space inside the input field */
+    border: 1px solid #ccc; /* Add a light grey border */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 1em; /* Make font size consistent */
+}
+
+button[type="submit"] { /* Target only submit buttons */
+    background-color: #28a745; /* Green background for the button */
+    color: white; /* White text */
+    padding: 10px 20px; /* Space inside the button (top/bottom, left/right) */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1em;
+    cursor: pointer; /* Change mouse cursor to pointer on hover */
+    margin-top: 10px; /* Space above the button */
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+
+/* --- List Styles (results.html, details.html) --- */
+ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove default padding */
+}
+
+li {
+    background-color: #e9f5f4; /* Very light teal background for list items */
+    margin-bottom: 10px; /* Space between list items */
+    padding: 15px; /* Space inside each list item */
+    border-left: 5px solid #019186; /* Add a teal accent border on the left */
+    border-radius: 4px;
+}
+
+/* --- Details Page Specific Styles --- */
+.details-image { /* We'll add this class in details.html */
+    max-width: 100%; /* Make image responsive, max width is container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Helps with centering/spacing */
+    margin: 20px auto; /* Add space around image and center it */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+pre { /* Style the preformatted instruction block */
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    white-space: pre-wrap; /* Ensure text wraps */
+    word-wrap: break-word; /* Ensure long words break */
+    font-size: 0.95em; /* Slightly smaller font for instructions */
+    line-height: 1.7; /* Slightly more line spacing */
+}
